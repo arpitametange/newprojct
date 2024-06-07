@@ -1,0 +1,14 @@
+CACHE SERVER INFO===
+const morgan = require("morgan");
+const apicache = require("apicache");
+
+app.use(morgan('dev'));
+ 
+//configure apicache 
+let cache = apicache.middleware
+ 
+//caching all routes for 5 minutes
+app.use(cache('1 minutes'))
+
+url:-
+https://www.geeksforgeeks.org/api-response-caching-using-apicache-middleware-in-node-js/
