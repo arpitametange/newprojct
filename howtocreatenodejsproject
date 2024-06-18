@@ -1,0 +1,36 @@
+*************How to create nodejs project*********************
+
+firstpage component === control center, cockpit, onboarding
+home component==navbar sidebar
+
+filters component ===search tab or dropdowns
+npm run dev 
+***********MONGODB***************
+npx express-generator
+npm i mongoose
+npm i
+npm i cors
+
+
+www ===
+  const mongoose=require('mongoose')
+////connect to database
+mongoose.connect('mongodb://localhost:27017/test',  //database name
+{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connection.once('open',()=>{
+  console.log('connected to mongodb');
+})
+mongoose.connection.on('error',()=>{
+  console.log('error');
+})
+
+create models folder ===user.model.js
+ create routes folder  ===user.js
+ configure in app.js==   
+ var todoRouter=require('./routes/test')  
+app.use('/test',todoRouter)  
+
+
+
+first define the url in app.js (salary) and then in routes files(calculate) 
+then url made like this         ===> localhost:3000/salary/calculate    
