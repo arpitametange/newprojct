@@ -1,0 +1,174 @@
+ISSUES AND THIER SOLUTIONS
+
+1) In production there is bundle size issue 
+== solved by changing the size range of budget  from angular.json 
+  "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "150kb",
+                  "maximumError": "150kb"
+                }
+              ],
+              "outputHashing": "all"
+
+=======================
+
+2)Issue in checkbox 
+missbehaving of checkbox== 
+
+3) issue in filters count 
+company name ,company domain, job title,country
+
+4)Issue in applying filter chips with multiple input value on table
+backend code has been changed
+
+
+
+5)responsive in chart option
+
+ renderlineChart() {
+    const labels = this.timestampData.map((item: any) => item.count);
+    const series = this.timestampData.map((item: any) => item.date);
+    const options = {
+      series: [{
+        name: 'Time',
+        data: labels,
+        labels: {
+          formatter: function(value: string) {
+            return value + ' hr';
+          }
+        }
+      }],
+      chart: {
+        type: 'line',
+        width: 900,
+        height: 400,
+        zoom: {
+          enabled: false
+        },
+        fontFamily: 'Arial, sans-serif',
+        background: '#f5f5f5'
+      },
+      title: {
+        text: "Saved Count",
+        align: "left"
+      },
+      animationEnabled: true,
+      xaxis: {
+        categories: series
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.7,
+          opacityTo: 0.9,
+          stops: [0, 100]
+        }
+      },
+      colors: ['#2980b9'],
+      style: {
+        fontSize: '14px',
+        fontWeight: 'bold'
+      },
+      legend: {
+        position: 'right',
+        fontSize: '22px'
+      },
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 330, // Adjust width for smaller screens
+            height: 300 // Adjust height for smaller screens
+          },
+          legend: {
+            position: 'right'
+          }
+        }
+      },    {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 500,
+            height: 300
+          }
+        }
+      },
+      {
+        breakpoint: 768,
+        options: {
+          chart: {
+            width: 700,
+            height: 400
+          }
+        }
+      },
+      {
+        breakpoint: 992,
+        options: {
+          chart: {
+            width: 800,
+            height: 450
+          }
+        }
+      }
+     
+  ],
+      tooltip: {
+        enabled: true,
+        style: {
+          fontSize: '16px'
+        },
+        x: {
+          show: true
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: "straight"
+      },
+      markers: {
+        size: 0
+      }
+    };
+    const chart = new ApexCharts(document.querySelector("#chart2"), options);
+    chart.render(); 
+  }
+6)parameter routing 
+
+ ** carrier page html                  
+<button class="btn d-block w-100 d-sm-inline-block btn-light col-6"  [routerLink]="['/info', t.id]"  id="moreInfo">More Info</button>
+
+
+ **app-routing module
+{ path: 'carrier', component: CarrierComponent },
+{ path: 'info/:id', component: MoreInfoPageComponent },
+
+
+**  get(id: any) {
+    return this.http.get(this.url + id);
+  }
+
+
+**more information 
+
+  ngOnInit(): void {
+    let id = this.router.snapshot.params['id'];
+
+    this.service.get(id).subscribe((res: any) => {
+      console.log(res, 'res');
+      // Assuming the response contains the job information directly
+      this.job = res;
+
+      // If the response contains an 'info' property, use the line below
+      // this.jobInfo = res.info;
+    });
+  }
