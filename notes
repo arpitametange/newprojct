@@ -12,3 +12,755 @@ app.use(cache('1 minutes'))
 
 url:-
 https://www.geeksforgeeks.org/api-response-caching-using-apicache-middleware-in-node-js/
+
+
+
+
+
+***For installing according to version angular    &   IP address
+
+node version 18 required for 16
+npm install -g @angular/cli@16.0
+ng new my-app
+/////////////////////////////
+**Running on ip address
+ng serve --host 192.168.0.6
+ng serve --host 192.168.0.6
+http://192.168.0.6:4200/
+https://vectordb.app/landingPage/
+
+//////////////////////////  
+RENDER HOSTING SETTINGG  ===
+BUILD COMMAND ==> Npm i
+start command ==> node ./bin/www
+
+/////////////////////////////////////
+TAKE IMAGES FROM  
+freepik
+vecteezy
+////////////////////////
+
+ANIMATION HIDE SHOW
+
+
+
+
+
+<div class="animation-container">
+  <svg width="400" height="400" viewBox="0 0 400 400" class="orbit-svg">
+    <!-- Central Element -->
+    <image xlink:href="./assets/hero-banner.png" class="center-element" x="138" y="67" width="300" height="300" />
+
+    <!-- Orbiting Elements -->
+    <g class="orbit">
+      <image xlink:href="./assets/filter3.PNG" class="orbit-element" x="10" y="100" width="160" height="160" />
+      <image xlink:href="./assets/filter3.PNG" class="orbit-element" x="500" y="100" width="150" height="150" />
+      <image xlink:href="./assets/filter3.PNG" class="orbit-element" x="487" y="277" width="150" height="150" />
+      <!-- <image xlink:href="./assets/filter3.PNG" class="orbit-element" x="300" y="300" width="150" height="150" /> -->
+      <!-- <image xlink:href="./assets/filter3.PNG" class="orbit-element" x="0" y="434" width="150" height="150" /> -->
+      <image xlink:href="./assets/filter3.PNG" class="orbit-element" x="0" y="270" width="150" height="150"  style="margin-left: 100px;" />
+    </g>
+  </svg>
+</div>
+
+
+
+
+
+.animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.orbit-svg {
+  overflow: visible;
+}
+
+.center-element {
+  transform-origin: center;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.orbit {
+  animation: rotate 10s linear infinite;
+  transform-origin: 400px 400px;
+}
+
+.orbit-element {
+  transform-origin: 100% 100%;
+  transform-box: fill-box;
+  animation: pop-up 4s infinite ease-in-out;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pop-up {
+  0% { transform: scale(0); opacity: 0; }
+  30% { transform: scale(2); opacity: 1; }
+  70% { transform: scale(2); opacity: 1; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+/////////////////////////////////////////
+Credentials for cpanel databse
+pratiksha   USERNAME
+arpita@1234  PASSWORD
+pratikshaDb  DATABASENAME
+
+1)https://sqldb4.onrender.com/db ==>render api for database
+
+*****HOSTINGER****
+ host: 'srv1391.hstgr.io',
+ user: 'u858543158_arpita',
+ password: 'Arpita@1234#',
+ database: 'u858543158_arpitaDb'
+
+
+steps to create database in hostinger
+1) create user name and password and database
+2)change permissions
+3)add ip to your databse in  remote mysql
+4)go to phpMyAdmin
+5)create table in databse and insert values to it
+6)add databse and user details in nodejs backend
+7)take host name from remote mysql
+UPDATES ABOUT THE ==WHAT YOU LEARN EVERYDAY
+
+1)FOR USING PROGRESS BAR 
+  isLoading: boolean = true;
+  progressValue: number = 0;
+
+<div style="color: #759fe9; margin-top: 10px;"><mat-progress-bar *ngIf="isLoading" [value]="progressValue"></mat-progress-bar>
+</div>
+
+  ngOnInit(): void {
+    this.startProgressBar();
+    this.fetchAllDetailsForUser(this.userProspectLink);
+  }
+
+  onUserNameClick(prospectLink: string): void {
+    // Reset progress bar on user click
+    this.progressValue = 0;
+    this.startProgressBar();
+    this.fetchAllDetailsForUser(prospectLink);
+  }
+
+  fetchAllDetailsForUser(userProspectLink: string): void {
+    this.apiService.getAllDetailsForUser(userProspectLink).subscribe(
+      (data) => {
+        this.isLoading = false;
+      } );
+  }
+
+  startProgressBar() {
+    const interval = setInterval(() => {
+      if (this.progressValue < 100) {
+        this.progressValue += 50; // You can adjust the progress increment here.
+      } else {
+        clearInterval(interval);
+      }
+    }, 1000); // Adjust the interval time here for a smoother progress animation.
+  }
+}
+
+2)angular packages LOADING BAR
+
+  npm i @ngx-loading-bar/core
+
+
+html===
+<ngx-loading-bar></ngx-loading-bar>
+<button (click)="startLoading()">start</button>
+<button (click)="stopLoading()">stop</button>
+
+
+
+ts  ===
+constructor(private loadingBar: LoadingBarService) { }
+
+startLoading() {
+  this.loadingBar.start();
+}
+
+stopLoading() {
+  this.loadingBar.complete();
+}
+
+
+
+====ANGULAR 17 NEW FEATURES====
+<div *ngIf="loggedIn; else anonymousUser">
+  The user is logged in
+</div>
+<ng-template #anonymousUser>
+  The user is not logged in
+</ng-template>
+
+With the built-in if statement, this condition will look like:
+@if (loggedIn) {
+  The user is logged in
+} @else {
+  The user is not logged in
+}
+
+
+Built-in for loop
+@for (user of users; track user.id) {
+  {{ user.name }}
+} @empty {
+  Empty list of users
+}
+
+
+3)NEW LIFECYCLE HOOKS
+afterRender — register a callback to be invoked each time the application finishes rendering
+afterNextRender — register a callback to be invoked the next time the application finishes rendering
+
+
+4)WEBSITE TOUR GUIDE FOR USER --(12/2/24)
+
+ * npm i driver.js
+
+*  tourGuide(){
+    const driverObj = driver({
+      showProgress: true,
+      showButtons: ['next', 'previous'],
+      steps: [
+        { element: '.allFilters', popover: { title: 'Apply Filters', description: 'Use Filters to build a targeted list of the best prospects.', side: "left", align: 'start' }},
+        { element: '.components', popover: { title: 'Saved Contacts', description: `Use the Saved tab to take actions on contacts that you've already saved, and the Net New tab to find people that you have not added yet.`, side: "bottom", align: 'start' }},
+        { element: '.peopleCompaniesSavedList', popover: { title: 'Save your Progress', description: 'Organize your contacts by saving them to lists.', side: "bottom", align: 'start' }},
+        { element: '.searchSavedSearches', popover: { title: 'Save your searches', description: 'Save time searching for new contacts with Saved Searches', side: "left", align: 'start' }},
+      ]
+    });
+    
+    driverObj.drive();
+  }
+
+
+
+5)ROUTES RESUSE STRATEGY
+
+BaseRouteReuseStrategy
+CLASS
+This base route reuse strategy only reuses routes when the matched router configs are identical. This prevents components from being destroyed and recreated when just the route parameters, query parameters or fragment change (that is, the existing component is reused).
+
+
+THIS IS THE EXAMPLE
+export class GooglesignupComponent implements RouteReuseStrategy{
+  private storedRoutes = new Map<string, DetachedRouteHandle>();
+
+  shouldDetach(route: ActivatedRouteSnapshot): boolean {
+    return true; // You can adjust this based on your logic
+  }
+
+  store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
+    this.storedRoutes.set(this.getRouteKey(route), handle);
+  }
+
+  shouldAttach(route: ActivatedRouteSnapshot): boolean {
+    return this.storedRoutes.has(this.getRouteKey(route));
+  }
+
+  retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null {
+    return this.storedRoutes.get(this.getRouteKey(route)) || null;
+  }
+
+  shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
+    // Add your logic here to determine if the route should be reused
+    return future.routeConfig === curr.routeConfig;
+  }
+
+  private getRouteKey(route: ActivatedRouteSnapshot): string {
+    // You can customize this key based on your route structure
+    return route.routeConfig?.path || '';
+  }
+
+6)LOGIN AND SIGNIN 
+
+OnSubmit() {
+    const emailControl = this.myReactiveForm.get('email');
+    const passwordControl = this.myReactiveForm.get('password');
+ 
+///////////////If the data is valid it will store in backend and also store in localstorage for checking if the data is correct////////////////////// 
+
+    if (emailControl && passwordControl && emailControl.valid && passwordControl.valid) {
+      this.apiService.loginUser(this.myReactiveForm.value).subscribe(
+        (response: any) => {
+          // console.log('Successfully handled the response:', response);
+  
+          localStorage.setItem('password', response.password);
+  
+          if (response.user && response.user.email && response.user.firstName && response.user.lastName) {
+            localStorage.setItem('email', response.user.email);
+            localStorage.setItem('firstName', response.user.firstName);
+            localStorage.setItem('lastName', response.user.lastName);
+            this.snackbar.open('You have logged in successfully', 'Close', {
+              duration: 4000,
+            });
+            this.router.navigate(['home']);
+          } else {
+            console.error('Invalid response format:', response);
+          }}}
+
+loginUser(user: any): Observable<any> {
+    return this.http.post(this.api_Url + 'login.php', user, { responseType: 'json' })
+      .pipe(
+        tap((response: any) => {
+          this.authService.setToken(response.token);
+          localStorage.setItem('user_id', response.id);
+          localStorage.setItem('email', response.email);
+        })
+      );
+  }
+
+
+7)SIGN IN WITH GOOGLE
+
+declare var google :any
+
+ ngOnInit(): void {
+    google.accounts.id.initialize({
+      client_id:'722454344204-4on4luc4s799mpb77gkrhr0p3ebuq8n8.apps.googleusercontent.com',
+      callback:(resp:any)=> this.handleLogin(resp),
+    })
+    
+    google.accounts.id.renderButton(document.getElementById("google-btn"),{
+      theme:'filled_blue',
+      size:'large',
+      shape:'rectangular',
+      width:350
+    })
+  }
+
+private decodeToken(token:string){
+  return JSON.parse(atob(token.split(".")[1]))
+}
+  handleLogin(respon:any){
+    if(respon){
+const payload=this.decodeToken(respon.credential);
+sessionStorage.setItem("loggedInuser", JSON.stringify(payload))
+
+ // Extract user data from the payload
+ const userData = {
+  email: payload.email,
+  firstName: payload.given_name,
+  lastName: payload.family_name,
+  // Add other relevant fields as needed
+};
+
+// Send user data to backend for storage
+this.apiService.registerUser(userData).subscribe(
+  (registrationResponse: any) => {
+    console.log(registrationResponse, 'User registered successfully');
+    // Handle success
+  },
+  (error: any) => {
+    console.error(error);
+    // Handle error
+  }
+);
+this.ngZone.run(() => {
+  this.router.navigate(['home/firstPage'])
+});
+    }
+
+   <div class="w-full md:w-3/12 absolute right-0 left-0 p-12  my-36 mx-auto text-white rounded-lg bg-red">
+          <div id="google-btn"></div></div>
+
+8)APEX CHART
+
+npm install apexcharts --save
+npm install @types/apexcharts --save-dev
+
+
+ const options = {
+      series: [67.5, 13.5,19],
+      chart: {
+        type: 'donut',
+        width: 400, // Set the desired width
+        height: 300 // Set the desired height
+      },
+      labels: ['Accurate data','Contact with job change','Unknown data'],
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }]
+    };
+
+ const chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+
+<div id="chart" ></div>
+
+
+
+****CURSOR POINTER****
+cursor:pointer
+cursor:context-menu;
+
+9)navigator of multi component 
+<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link active"
+        id="ex1-tab-1"
+        data-mdb-toggle="tab"
+        href="#ex1-tabs-1"
+        role="tab"
+        aria-controls="ex1-tabs-1"
+        aria-selected="true"
+        >Control center</a
+      >
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link"
+        id="ex1-tab-2"
+        data-mdb-toggle="tab"
+        href="#ex1-tabs-2"
+        role="tab"
+        aria-controls="ex1-tabs-2"
+        aria-selected="false"
+        >Cockpit</a
+      >
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link"
+        id="ex1-tab-3"
+        data-mdb-toggle="tab"
+        href="#ex1-tabs-3"
+        role="tab"
+        aria-controls="ex1-tabs-3"
+        aria-selected="false"
+        >Onboarding</a
+      >
+    </li>
+  </ul>
+  <!-- Tabs navs -->
+  
+  <!-- Tabs content -->
+  <div class="tab-content" id="ex1-content">
+    <div
+      class="tab-pane fade show active"
+      id="ex1-tabs-1"
+      role="tabpanel"
+      aria-labelledby="ex1-tab-1"
+    >
+      Tab 1 content
+    </div>
+    <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+      Tab 2 content
+    </div>
+    <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+      Tab 3 content
+    </div>
+  </div>
+
+
+10) class="body-wrap boxed-container"  for showing as a container
+
+11)<div id="nextpage">     <a href="#nextpage" class="arrow bounce" id="scrollDown"><span class="material-symbols-outlined">
+      stat_minus_3
+      </span></a>
+
+12)  Instead of summary and details we use mat expansion panel
+
+ <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <div style="display: inline-flex; flex-direction: row;">
+            <span *ngIf="excludeCompanyDomain.length > 0" style="padding-left: 10px; padding-right: 9px; margin: 35px; border: 1px solid black; border-radius: 12px;">
+             {{ excludeCompanyDomain.length }} <a  (click)="removeExcludeCompanyDomainCount()">×</a>
+            </span>
+          </div>
+          <mat-panel-title>Exclude-Company Domain</mat-panel-title>
+        </mat-expansion-panel-header>
+</mat-expansion-panel>
+
+
+
+<mat-expansion-panel >
+  <mat-expansion-panel-header>
+    <mat-panel-title>The Basics</mat-panel-title>
+  </mat-expansion-panel-header>
+  <div style="display: flex; align-items: center">
+<ul>
+  <li>Welcome to Datagateway</li>
+<li>Watch A Bite-Sized Datagateway Demo</li>
+<li> Access a Free Trial of Datagateway</li>
+<li>Configure Advanced Security Protocols For Your Team in Datagateway</li>
+<li>Get To Know the Datagateway Knowledge Base</li>
+</ul>
+  </div>
+</mat-expansion-panel>
+
+13) ======= navigate according to id using parameter routing =========
+  { path: 'info/:id', component: MoreInfoPageComponent },
+
+    <button class="btn d-block w-100 d-sm-inline-block btn-light col-6"  [routerLink]="['/info', t.id]"  id="moreInfo">More Info</button>
+
+   ====This is in  moreinfo component====
+  job: any; // Change the type according to your data structure
+
+  constructor(private router: ActivatedRoute, private service: ServiceService, public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    let id = this.router.snapshot.params['id'];
+    this.service.get(id).subscribe((res: any) => {
+      console.log(res, 'res');
+      // Assuming the response contains the job information directly
+      this.job = res;
+      // If the response contains an 'info' property, use the line below
+      // this.jobInfo = res.info;
+    });
+  }
+
+14)Show image from domain name using clearbit
+<img src="https://logo.clearbit.com/clearbit.com">
+https://logo.clearbit.com/segment.com?size=200
+15)get last bounce
+
+
+***Authentication needed****
+
+  private url = 'https://api.lastbounce.com/api/singleEmail/validate';
+  private headerr = new HttpHeaders({
+    'X-api-key': 'K7tKu7hSi11yi50wOAzgm9zCHn9M10Tq1I79FUNE'
+  });
+
+
+****Service*****
+  getlastBounce(email: string): Observable<any> {
+    // Create URL parameters with the email
+    const params = new HttpParams().set('email', email);
+
+    // Make the request with the URL parameters and headers
+    return this.http.post(this.url, null, { headers: this.headerr, params: params });
+  }
+
+*****component  ***********
+
+
+ valitity: any;
+  clicked: any;
+  isEmailValid: any;
+  showSelected: boolean = false;
+  validationChecked: boolean = false;
+  showButton: boolean = true;
+  validateEmail(email: string, item: any): void {
+    this.isLoading = true;
+    this.apiService.getlastBounce(email).subscribe(
+      (data) => {
+        console.log(data.result, 'data of rebounce');
+        this.isEmailValid = data.result;
+        item.isValidEmail = data.result;
+        item.clicked = true;
+
+        // Store the verification status in localStorage
+        localStorage.setItem(
+          'emailVerification_' + email,
+          JSON.stringify({ isValidEmail: data.result, clicked: true })
+        );
+        this.valitity = localStorage.getItem('isValidEmail');
+        this.clicked = localStorage.getItem('clicked');
+      },
+      (error) => {
+        console.error('Error validating email:', error);
+        this.snackBar.open('Error occurred while validating email', 'Close', {
+          duration: 4000,
+          verticalPosition: 'top',
+          panelClass: ['custom-snackbar', 'snackbar-error'],
+        });
+      }
+    );
+  }
+
+
+
+  // Method to retrieve the stored validation status for an email from localStorage
+  getStoredValidationStatus(email: string): string | null {
+    const storedData = localStorage.getItem('emailVerification_' + email);
+    if (storedData) {
+      const { isValidEmail } = JSON.parse(storedData);
+      return isValidEmail;
+    }
+    return null;
+  }
+}
+
+******html******
+ <div>   <div *ngIf="getStoredValidationStatus(item.email_address) !== null && getStoredValidationStatus(item.email_address) !== undefined" style="width: 200px">
+                        <!-- Display the validation status based on the stored value -->
+                        <p class="table-row__p-status status--green status" *ngIf="getStoredValidationStatus(item.email_address) === 'VALID'">
+                          <img src="https://app.datagateway.in/image/darkgreen2.svg" width="27px" height="50px" alt="">   <span style="font-weight: bold; margin-left: 5px;"> Verified email {{ item.email_address }} </span>
+                        </p>
+                        <p class="table-row__p-status status--red  status" *ngIf="getStoredValidationStatus(item.email_address) === 'INVALID'">
+                        
+                         <img src="https://app.datagateway.in/image/unverfied.svg" width="31px" height="50px" alt="">    <span  style="font-weight: bold; margin-left: 7px;">Unverified email {{ item.email_address }} </span>
+                        </p>
+                        <p class="table-row__p-status status--blue status" *ngIf="getStoredValidationStatus(item.email_address) === 'UNKNOWN'">
+                          <img src="https://app.datagateway.in/image/unknown.svg" width="35px" height="50px" alt="">   <span style="margin-left: 10px; font-weight: bold;">Unknown {{ item.email_address }} </span>
+                        </p>
+                        <p class="table-row__p-status status--yellow status" *ngIf="getStoredValidationStatus(item.email_address) === 'ACCEPT_ALL'">
+                          <img src="https://app.datagateway.in/image/yellow.svg" width="34px" height="50px" alt="">    <span style="font-weight: bold;"> Accept all {{ item.email_address }}</span>
+                        </p>
+                        <p *ngIf="getStoredValidationStatus(item.email_address) === null">
+                            Email Not available <span>{{ item.email_address }} </span>
+                        </p>
+                    </div>
+                    <ng-container *ngIf="getStoredValidationStatus(item.email_address) === null || getStoredValidationStatus(item.email_address) === undefined">
+                        <button 
+                            class="btn"
+                            (click)="validateEmail(item.email_address, item)"
+                        >
+                            <span *ngIf="showButton" role="status" aria-hidden="false"></span>
+                            <span aria-hidden="true" style="padding-right: 23px;" ><img src="https://app.datagateway.in/image/letter.png" width="32px" height="50px" alt=""> Access Email</span>
+                        </button> 
+                    </ng-container>                  
+                    </div>
+///////////////////////////////////////////
+
+*************How to create nodejs project*********************
+
+firstpage component === control center, cockpit, onboarding
+home component==navbar sidebar
+
+filters component ===search tab or dropdowns
+npm run dev 
+***********MONGODB***************
+npx express-generator
+npm i mongoose
+npm i
+npm i cors
+
+
+www ===
+  const mongoose=require('mongoose')
+////connect to database
+mongoose.connect('mongodb://localhost:27017/test',  //database name
+{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connection.once('open',()=>{
+  console.log('connected to mongodb');
+})
+mongoose.connection.on('error',()=>{
+  console.log('error');
+})
+
+create models folder ===user.model.js
+ create routes folder  ===user.js
+ configure in app.js==   
+ var todoRouter=require('./routes/test')  
+app.use('/test',todoRouter)  
+
+
+
+first define the url in app.js (salary) and then in routes files(calculate) 
+then url made like this         ===> localhost:3000/salary/calculate    
+
+
+
+
+/////////////////
+
+SQL USERNAME AND PASSWORD
+ArpitaUser
+Arpita@1234
+///  newphp.php
+
+1)first create username and password in cpanel
+2)then create database
+3) then assigned that database to username
+4) In php admin create table
+
+CREATE TABLE `newTable` (
+  `summarizedContent` varchar(500) DEFAULT NULL,
+  `campaignId` int(255) DEFAULT NULL,
+  `campaignName` varchar(255) DEFAULT NULL,
+  `uniqueId` varchar(255) DEFAULT NULL,
+  `whitepaperHeading` varchar(255) DEFAULT NULL,
+  `filePath` varchar(255) DEFAULT NULL,
+    `DomainName` varchar(255) DEFAULT NULL,
+) 
+
+5) then add values to it
+
+INSERT INTO `newTable` (`summarizedContent`, `campaignId`, `campaignName`, `uniqueId`, `whitepaperHeading`, `filePath`,`DomainName`) VALUES
+('Evolving vendor terms, shifting shipping considerations, imbalanced prices, and global economic pressures have brought new complexities and risks to purchasing operations. Now more than ever, small and medium businesses can benefit from simplified business buying through flexible digital solutions that adapt to your evolving business needs.', 1023, 'Amazon', '1023', '2023 Small & Medium Business Buying Guide', 'C:/Data-April/65753key_elements_enterprises_need_to_include_in_modern_secops__1_.pdf','ebroker.es'),
+('Third-party logistics providers (3PLs) are a more critical part of the value chain in e-commerce than in physical stores. Customers now expect overnight or two-day delivery of products in stock, so the ability of a 3PL to meet tight deadlines with accurate tracking and pinpoint precision is critical. This requires a very different set of skills from managing a warehouse.', 646, 'Microsoft', '544', '7 Key traits of an ecommerce fulfillment partner', 'C:/Data-April/65753esg_showcase_google_generative_ai_dec_2023__2_.pdf','servitelco.com'),
+('A Proactive Approach to Generative AI for Cybersecurity\r\nJon Oltsik, Distinguished Analyst and Fellow\r\nAbstract: Generative AI for cybersecurity is new, confusing, and somewhat scary for many infosec professionals. \r\nWhile this might be true, it also has great potential to help organizations improve threat detection and response, \r\nautomate processes, augment staff, and mitigate risks. CISOs should remain open-minded, explore generative AI \r\nuse cases, and select vendor partners with the right f', 10234, 'Vanderlande', '10234', 'A Proactive Approach to Generative AI for Cybersecurity', 'C:/Data-April/65753esg_showcase_google_generative_ai_dec_2023__2_.pdf','vanderlande.com'),
+('dsdvsdvsdv', 1022356, 'Google', '1022356', 'dvdv', 'C:/Data-April/65762ociso_securing_ai_different_similar__1_.pdf','neurafy.com'),
+('emirates summarized content', 85, 'emirates', '78', 'emirates whitepaper heading', NULL,'grahampackaging.com'),
+('In an attempt to address the increased use of application programming interfaces (APIs), the marketplace is now l ', 12, 'bosch', 'null', 'lorem', NULL,'dxc.com')
+
+6) Then create php file and add credentials to it
+
+<?php
+
+$servername = "bom1plzcpnl503931.prod.bom1.secureserver.net";
+$username = "ArpitaUser";
+$password = "Arpita@1234";
+$database = "SqlDatabase";
+$table = "newTable";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if a parameter for fetching by unique ID or campaign ID is provided
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $column = isset($_GET['column']) ? $_GET['column'] : 'uniqueID'; // Default to uniqueID if column is not specified
+
+    // Prepare SQL query based on the provided column
+    $sql = "SELECT * FROM $table WHERE $column = '$id'";
+} else {
+    // If no specific ID provided, fetch all records
+    $sql = "SELECT * FROM $table";
+}
+
+// Execute SQL query
+$result = $conn->query($sql);
+
+// Check if there are any results
+if ($result->num_rows > 0) {
+    // Fetch all data and store in an array
+    $data = array();
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+
+    // Prepare response array
+    $response = array(
+        "data" => $data
+    );
+
+    // Encode response array to JSON format
+    $json = json_encode($response, JSON_PRETTY_PRINT);
+    echo $json; // Output JSON data
+} else {
+    echo "No records found";
+}
+
+// Close database connection
+$conn->close();
+
+?>
+
